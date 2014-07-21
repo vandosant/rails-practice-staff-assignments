@@ -5,11 +5,11 @@
         <text>Add%20New%0Ahttp%3A//localhost%3A3000/people/1/assignments/new</text>
       </controlProperties>
     </control>
-    <control controlID="3" controlTypeID="com.balsamiq.mockups::Button" x="298" y="277" w="-1" h="-1" measuredW="98" measuredH="27" zOrder="1" locked="false" isInGroup="-1">
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::Button" x="298" y="277" w="-1" h="-1" measuredW="63" measuredH="27" zOrder="1" locked="false" isInGroup="-1">
       <controlProperties>
         <align>right</align>
         <color>2848996</color>
-        <text>Add%20Location</text>
+        <text>Assign</text>
       </controlProperties>
     </control>
     <control controlID="15" controlTypeID="com.balsamiq.mockups::SubTitle" x="210" y="133" w="-1" h="-1" measuredW="416" measuredH="27" zOrder="2" locked="false" isInGroup="-1">
@@ -27,9 +27,9 @@
         <text/>
       </controlProperties>
     </control>
-    <control controlID="25" controlTypeID="com.balsamiq.mockups::Label" x="210" y="189" w="-1" h="-1" measuredW="26" measuredH="21" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::Label" x="210" y="189" w="-1" h="-1" measuredW="50" measuredH="21" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Title</text>
+        <text>Location</text>
       </controlProperties>
     </control>
     <control controlID="27" controlTypeID="com.balsamiq.mockups::ComboBox" x="298" y="187" w="-1" h="-1" measuredW="179" measuredH="24" zOrder="6" locked="false" isInGroup="-1">

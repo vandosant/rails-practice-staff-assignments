@@ -14,19 +14,10 @@ Note: email/password combinations for existing users populated by `rake db:seed`
 
 ## Stories
 
-**Users can add people**
+**Users must enter a title/last_name or first_name/last_name**
 
 ```
-Go to index page
-Click "New Person"
-Fill out form and click button
-See the person appear on the index page
-```
-
-**Must enter a title/last_name or first_name/last_name**
-
-```
-While adding a person
+While adding or editing a person
 Users must enter either a title/last_name or a first_name/last_name
 Otherwise they get a validation message and the person isn't saved
 ```
@@ -45,6 +36,14 @@ Go to person show page
 Click on "+ Add Location"
 Fill out form
 View assignment on person show page
+Assignments must have both a location and a role
+```
+
+**People cannot be assigned to the same location with the same role**
+
+```
+A person can be assigned to "Northeast" more than once, as long as the role is unique
+But a person cannot be assigned as "Sales Manager" to "Northeast" twice
 ```
 
 **Users can edit assignments**
@@ -63,6 +62,13 @@ Go to person show page
 Click on the "delete" link by an assignment
 Javascript prompt that says "Are you sure?" should appear
 If user clicks "OK" then it should be deleted
+```
+
+**Users see assignment count on the home page**
+
+```
+Go to the home page
+You should see the total number of assignments next to each person
 ```
 
 ## Wireframes

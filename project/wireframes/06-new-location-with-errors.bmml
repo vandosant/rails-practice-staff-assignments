@@ -9,7 +9,7 @@
       <controlProperties>
         <align>right</align>
         <color>2848996</color>
-        <text>Add%20Location</text>
+        <text>Assign</text>
       </controlProperties>
     </control>
     <control controlID="15" controlTypeID="com.balsamiq.mockups::SubTitle" x="210" y="133" w="-1" h="-1" measuredW="416" measuredH="27" zOrder="2" locked="false" isInGroup="-1">
@@ -27,9 +27,9 @@
         <text/>
       </controlProperties>
     </control>
-    <control controlID="25" controlTypeID="com.balsamiq.mockups::Label" x="210" y="289" w="-1" h="-1" measuredW="26" measuredH="21" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::Label" x="210" y="289" w="-1" h="-1" measuredW="50" measuredH="21" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Title</text>
+        <text>Location</text>
       </controlProperties>
     </control>
     <control controlID="27" controlTypeID="com.balsamiq.mockups::ComboBox" x="298" y="287" w="-1" h="-1" measuredW="179" measuredH="24" zOrder="6" locked="false" isInGroup="-1">
@@ -37,10 +37,10 @@
         <text>Please%20select%20a%20location...</text>
       </controlProperties>
     </control>
-    <control controlID="28" controlTypeID="com.balsamiq.mockups::Label" x="210" y="212" w="-1" h="-1" measuredW="113" measuredH="21" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="28" controlTypeID="com.balsamiq.mockups::Label" x="210" y="212" w="-1" h="-1" measuredW="137" measuredH="21" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
         <color>13576743</color>
-        <text>Title%20can%27t%20be%20blank</text>
+        <text>Location%20can%27t%20be%20blank</text>
       </controlProperties>
     </control>
     <control controlID="29" controlTypeID="com.balsamiq.mockups::Label" x="210" y="181" w="-1" h="-1" measuredW="292" measuredH="24" zOrder="8" locked="false" isInGroup="-1">
