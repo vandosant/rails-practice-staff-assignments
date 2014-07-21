@@ -1,5 +1,6 @@
 User.destroy_all
 Person.destroy_all
+Location.destroy_all
 
 User.create!(
   name: "Some User",
@@ -13,3 +14,7 @@ Person.create!(
   first_name: "Joe",
   last_name: "Example",
 )
+
+["Northeast", "Midwest", "Mountain West", "Northwest", "Southwest", "Deep south", "Texas"].each do |name|
+  Location.create!(name: name)
+end

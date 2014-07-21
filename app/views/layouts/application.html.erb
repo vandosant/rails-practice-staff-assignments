@@ -10,8 +10,9 @@
 <header>
   <div class="container">
     <div class="logo">
-      <%= link_to "Rails Practice", root_path %>
+      <%= link_to "Staff App", root_path %>
     </div>
+    <%= link_to "Locations", locations_path %>
     <% if current_user %>
       <div class="logout">
         <%= current_user.email %> |
