@@ -49,6 +49,10 @@ main {
   float: right;
 }
 
+.pull-right {
+  float: right;
+}
+
 .errors {
   color: maroon;
   margin-bottom: 1em;
@@ -93,4 +97,21 @@ main {
       background: #efefef;
     }
   }
+}
+
+.form-row {
+  label {
+    display: inline-block;
+    width: 80px;
+  }
+
+  input[type=submit] {
+    margin-left: 84px;
+    background: slategray;
+    color: white;
+    border: 1px solid #333;
+    padding: .5em 1em;
+  }
+
+  padding-bottom: 1em;
 }
