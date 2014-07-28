@@ -39,4 +39,34 @@ feature 'managing people' do
     click_button "Update"
     expect(page).to have_content "Fordy"
   end
+
+  scenario 'Users must enter a title or first name and a last name' do
+    person = Person.create!(first_name: "Rob", last_name: "Ford")
+    user = create_user
+    visit root_path
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_on "Login"
+
+    visit person_path(person.id)
+    expect(page).to have_content "Rob Ford"
+    click_link "Edit"
+
+    expect(page).to have_content "Title"
+    expect(page).to have_content "First name"
+    expect(page).to have_content "Last name"
+    fill_in "First name", :with => ""
+    fill_in "Last name", :with => ""
+    click_button "Update"
+    expect(page).to have_content "Last name is required"
+
+    expect(page).to have_content "Title"
+    expect(page).to have_content "First name"
+    expect(page).to have_content "Last name"
+    fill_in "First name", :with => ""
+    fill_in "Last name", :with => "Ford"
+    fill_in "Title", :with => ""
+    click_button "Update"
+    expect(page).to have_content "Title is required"
+  end
 end

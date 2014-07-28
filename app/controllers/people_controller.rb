@@ -27,8 +27,12 @@ class PeopleController < ApplicationController
 
   def update
     person = Person.find(params[:id])
-    person.update!(person_parameters)
-    redirect_to root_path
+    if person.update(person_parameters)
+      redirect_to root_path
+    else
+      @person = person
+      render :edit
+    end
   end
 
   private

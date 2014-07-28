@@ -1,4 +1,11 @@
 <%= form_for @person do |f| %>
+  <% if @person.errors.present? %>
+    <% @person.errors.full_messages.each do |error| %>
+      <div class='errors'>
+        <%= error %>
+      </div>
+    <% end %>
+  <% end %>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <%= f.label :first_name %>
