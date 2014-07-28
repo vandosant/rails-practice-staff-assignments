@@ -34,6 +34,9 @@ feature 'managing people' do
     page.has_field?('First name', :with => 'Rob')
     expect(page).to have_content "Last name"
     page.has_field?('Last name', :with => 'Ford')
-    expect(page).to have_button "Update"
+    fill_in "Last name", :with => "Fordy"
+
+    click_button "Update"
+    expect(page).to have_content "Fordy"
   end
 end
