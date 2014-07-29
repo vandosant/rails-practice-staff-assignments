@@ -12,7 +12,10 @@
     <tr class="assignment">
       <td><%= assignment.location.name %></td>
       <td><%= assignment.role %></td>
-      <td><%= link_to "edit", edit_person_assignment_path(id: assignment.id, person_id: @person.id) %></td>
+      <td>
+        <%= link_to "edit", edit_person_assignment_path(id: assignment.id, person_id: @person.id) %>
+        <%= link_to "delete", person_delete_assignment_path(id: assignment.id, person_id: @person.id), method: "DELETE", data: {confirm: "Are you sure?"} %>
+      </td>
     </tr>
   <% end %>
 </table>

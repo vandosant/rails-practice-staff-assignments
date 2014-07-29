@@ -113,6 +113,27 @@ feature 'managing people' do
     expect(page).to_not have_content "Manager"
   end
 
+  scenario 'Users can delete assignments' do
+    person = Person.create!(first_name: "Rob", last_name: "Ford")
+    location = Location.create!(name: "Denver")
+    Assignment.create!(person_id: person.id, location_id: location.id, role: "Manager")
+    user = create_user
+
+    visit root_path
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_on "Login"
+
+    visit person_path(person.id)
+    within ".assignment" do
+      click_link "delete"
+    end
+
+    expect(page).to have_content person.first_name
+    expect(page).to_not have_content "Denver"
+    expect(page).to_not have_content "Manager"
+  end
+
   def log_user_in(user)
     visit root_path
     fill_in "Email", with: user.email

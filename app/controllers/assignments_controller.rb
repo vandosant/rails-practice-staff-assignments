@@ -29,4 +29,10 @@ class AssignmentsController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    @assignment = Assignment.find(params[:id])
+    @assignment.delete
+    redirect_to person_path(params[:person_id])
+  end
 end
