@@ -5,10 +5,7 @@ feature 'managing people' do
   scenario 'Users can see a person show page' do
     person = Person.create!(first_name: "Rob", last_name: "Ford")
     user = create_user
-    visit root_path
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_on "Login"
+    log_user_in(user)
 
     visit '/'
     click_link "Rob Ford"
@@ -20,10 +17,7 @@ feature 'managing people' do
   scenario 'Users can edit people' do
     person = Person.create!(first_name: "Rob", last_name: "Ford")
     user = create_user
-    visit root_path
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_on "Login"
+    log_user_in(user)
 
     visit person_path(person.id)
     expect(page).to have_content "Rob Ford"
@@ -43,10 +37,7 @@ feature 'managing people' do
   scenario 'Users must enter a title or first name and a last name' do
     person = Person.create!(first_name: "Rob", last_name: "Ford")
     user = create_user
-    visit root_path
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_on "Login"
+    log_user_in(user)
 
     visit person_path(person.id)
     expect(page).to have_content "Rob Ford"
@@ -74,10 +65,7 @@ feature 'managing people' do
     person = Person.create!(first_name: "Rob", last_name: "Ford")
     location = Location.create!(name: "Denver")
     user = create_user
-    visit root_path
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_on "Login"
+    log_user_in(user)
 
     visit person_path(person.id)
     click_link "+ Add Location"
@@ -90,48 +78,6 @@ feature 'managing people' do
     expect(page).to have_content location.name
     expect(page).to have_content "Role"
     expect(page).to have_content "Manager"
-  end
-
-  scenario 'Users can edit assignments' do
-    person = Person.create!(first_name: "Rob", last_name: "Ford")
-    location = Location.create!(name: "Denver")
-    Assignment.create!(person_id: person.id, location_id: location.id, role: "Manager")
-    user = create_user
-    log_user_in(user)
-
-    visit person_path(person.id)
-    within ".assignment" do
-      click_link "edit"
-    end
-
-    fill_in "Role", :with => "Subordinate"
-    click_button "Assign"
-
-    expect(page).to have_content "Rob Ford"
-    expect(page).to have_content "Role"
-    expect(page).to have_content "Subordinate"
-    expect(page).to_not have_content "Manager"
-  end
-
-  scenario 'Users can delete assignments' do
-    person = Person.create!(first_name: "Rob", last_name: "Ford")
-    location = Location.create!(name: "Denver")
-    Assignment.create!(person_id: person.id, location_id: location.id, role: "Manager")
-    user = create_user
-
-    visit root_path
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_on "Login"
-
-    visit person_path(person.id)
-    within ".assignment" do
-      click_link "delete"
-    end
-
-    expect(page).to have_content person.first_name
-    expect(page).to_not have_content "Denver"
-    expect(page).to_not have_content "Manager"
   end
 
   def log_user_in(user)
