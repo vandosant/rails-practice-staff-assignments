@@ -4,9 +4,6 @@ class Person < ActiveRecord::Base
   def title_or_first_name_are_required
     if last_name.blank?
       errors.add(:last_name, "is required")
-    elsif first_name.blank? && last_name.blank?
-      errors.add(:first_name, "is required")
-      errors.add(:last_name, "is required")
     elsif title.blank? && first_name.blank? && last_name.present?
       if title.blank? && first_name.blank?
         errors.add(:title, "is required")
