@@ -1,12 +1,15 @@
+<%= render partial: "common/errors", locals: {model: @assignment} %>
+
 <%= form_for [@person, @assignment] do |f| %>
-  <% if @assignment.errors.present? %>
-    <% @assignment.errors.full_messages.each do |message| %>
-      <div class="errors"><%= message %></div>
-      <% end %>
-  <% end %>
-  <%= f.label :location_id, "Location" %>
-  <%= f.collection_select :location_id, Location.all, :id, :name %>
-  <%= f.label :role %>
-  <%= f.text_field :role %>
-  <%= f.submit "Assign" %>
+  <div class="form-row">
+    <%= f.label :location_id, "Location" %>
+    <%= f.collection_select :location_id, Location.all, :id, :name %>
+  </div>
+  <div class="form-row">
+    <%= f.label :role %>
+    <%= f.text_field :role %>
+  </div>
+  <div class="form-row">
+    <%= f.submit "Assign" %>
+  </div>
 <% end %>

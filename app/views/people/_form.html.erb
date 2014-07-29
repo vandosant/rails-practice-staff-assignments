@@ -1,24 +1,20 @@
 <%= form_for @person do |f| %>
-  <% if @person.errors.present? %>
-    <% @person.errors.full_messages.each do |error| %>
-      <div class='errors'>
-        <%= error %>
-      </div>
-    <% end %>
-  <% end %>
+
   <div class="form-row">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, autofocus: true, placeholder: "i.e. Dr." %>
   </div>
+
   <div class="form-row">
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>
   </div>
+
   <div class="form-row">
     <%= f.label :last_name %>
     <%= f.text_field :last_name %>
   </div>
-  <div class="form-row">
-    <%= f.submit "Update" %>
-  </div>
+
+  <%= f.submit %>
+
 <% end %>

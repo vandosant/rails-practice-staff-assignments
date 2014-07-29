@@ -1,12 +1,13 @@
 <%= "#{@person.first_name} #{@person.last_name}" %>
 <%= link_to "Edit", edit_person_path %>
-<%= link_to "+ Add Location", new_person_assignment_path(@person.id) %>
 
-<table>
-  <th>Locations</th>
+<h3 class="locations">Locations</h3>
+<%= link_to "+ Add Location", new_person_assignment_path(@person.id), class: "add-location" %>
+<table class="table">
   <tr>
     <td>Location</td>
     <td>Role</td>
+    <td></td>
   </tr>
   <% @person.assignments.each do |assignment| %>
     <tr class="assignment">
