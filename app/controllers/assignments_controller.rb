@@ -13,4 +13,20 @@ class AssignmentsController < ApplicationController
       render :new
     end
   end
+
+  def edit
+    @person = Person.find(params[:person_id])
+    @assignment = Assignment.find(params[:id])
+  end
+
+  def update
+    @person = Person.find(params[:person_id])
+    @assignment = Assignment.find(params[:id])
+
+    if @assignment.update(params.require(:assignment).permit(:location_id, :role))
+      redirect_to person_path(@person.id)
+    else
+      render :new
+    end
+  end
 end

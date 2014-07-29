@@ -6,6 +6,6 @@ Rails.application.routes.draw do
 
   resources :locations, only: :index
   resources :people do
-    resources :assignments, only: [:new, :create]
+    resources :assignments, only: [:new, :create, :edit, :update]
   end
 end

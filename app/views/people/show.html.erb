@@ -8,10 +8,11 @@
     <td>Location</td>
     <td>Role</td>
   </tr>
-  <tr>
-    <% @person.assignments.each do |assignment| %>
+  <% @person.assignments.each do |assignment| %>
+    <tr class="assignment">
       <td><%= assignment.location.name %></td>
       <td><%= assignment.role %></td>
-    <% end %>
-  </tr>
+      <td><%= link_to "edit", edit_person_assignment_path(id: assignment.id, person_id: @person.id) %></td>
+    </tr>
+  <% end %>
 </table>
