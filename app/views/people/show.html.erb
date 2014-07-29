@@ -1,2 +1,17 @@
 <%= "#{@person.first_name} #{@person.last_name}" %>
 <%= link_to "Edit", edit_person_path %>
+<%= link_to "+ Add Location", new_person_assignment_path(@person.id) %>
+
+<table>
+  <th>Locations</th>
+  <tr>
+    <td>Location</td>
+    <td>Role</td>
+  </tr>
+  <tr>
+    <% @person.assignments.each do |assignment| %>
+      <td><%= assignment.location.name %></td>
+      <td><%= assignment.role %></td>
+    <% end %>
+  </tr>
+</table>

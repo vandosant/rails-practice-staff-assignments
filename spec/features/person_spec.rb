@@ -69,4 +69,26 @@ feature 'managing people' do
     click_button "Update"
     expect(page).to have_content "Title is required"
   end
+
+  scenario 'Users can assign users to locations' do
+    person = Person.create!(first_name: "Rob", last_name: "Ford")
+    location = Location.create!(name: "Denver")
+    user = create_user
+    visit root_path
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_on "Login"
+
+    visit person_path(person.id)
+    click_link "+ Add Location"
+    page.select location.name, :from => "Location"
+    fill_in "Role", :with => "Manager"
+    click_button "Assign"
+
+    expect(page).to have_content "Rob Ford"
+    expect(page).to have_content "Locations"
+    expect(page).to have_content location.name
+    expect(page).to have_content "Role"
+    expect(page).to have_content "Manager"
+  end
 end

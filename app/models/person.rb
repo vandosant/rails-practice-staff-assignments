@@ -15,4 +15,6 @@ class Person < ActiveRecord::Base
       end
     end
   end
+
+  has_many :assignments
 end
