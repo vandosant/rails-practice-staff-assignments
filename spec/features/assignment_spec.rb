@@ -27,11 +27,7 @@ feature 'managing assignments' do
     location = Location.create!(name: "Denver")
     Assignment.create!(person_id: person.id, location_id: location.id, role: "Manager")
     user = create_user
-
-    visit root_path
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_on "Login"
+    log_user_in(user)
 
     visit person_path(person.id)
     within ".assignment" do
@@ -41,6 +37,24 @@ feature 'managing assignments' do
     expect(page).to have_content person.first_name
     expect(page).to_not have_content "Denver"
     expect(page).to_not have_content "Manager"
+  end
+
+  scenario 'Users can see the number of assignments' do
+    person = Person.create!(first_name: "Rob", last_name: "Ford")
+    location = Location.create!(name: "Denver")
+    Assignment.create!(person_id: person.id, location_id: location.id, role: "Manager")
+    user = create_user
+    log_user_in(user)
+
+    visit root_path
+
+    within "table.table" do
+      expect(page).to have_content "Location"
+      within "tr.person" do
+        expect(page).to have_content person.first_name
+        expect(page).to have_content "1"
+      end
+    end
   end
 
   def log_user_in(user)
