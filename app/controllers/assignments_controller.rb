@@ -7,7 +7,10 @@ class AssignmentsController < ApplicationController
   def create
     @person = Person.find(params[:person_id])
     @assignment = @person.assignments.new(params.require(:assignment).permit(:location_id, :role))
-    @person.save
-    redirect_to person_path(@person.id)
+    if @person.save
+      redirect_to person_path(@person.id)
+    else
+      render :new
+    end
   end
 end
